@@ -8,12 +8,3 @@ import com.innocv.user.model.User;
 public interface UserRepository extends JpaRepository<User, Integer>{
 
 }
-
-////Para usar el CRUD directamente
-//import org.springframework.data.repository.CrudRepository;
-//import com.innocv.exercise.entity.User;
-//
-//
-//public interface UserRepository extends CrudRepository<User, Integer>{
-//	
-//}

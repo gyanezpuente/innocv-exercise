@@ -26,9 +26,8 @@ import com.innocv.user.model.User;
 public class UserController {
 	
 	@Autowired
-	UserRepository userRepository;
+	UserRepository userRepository;	
 	
-	//TODO: ordenar todos los metodos como esta en userserviceimp
 	@GetMapping("/users")
 	public List<User> getAll() {
 		return this.userRepository.findAll();
@@ -37,9 +36,7 @@ public class UserController {
 	
 	@GetMapping("/users/{id}")
 	public ResponseEntity<User> get(@PathVariable(value = "id") int userId) throws ResourceNotFoundException {
-		User user =
-				this.userRepository.findById(userId).orElseThrow(
-						() -> new ResourceNotFoundException("User not found on :: " + userId));
+		User user = this.userRepository.findById(userId).orElseThrow(() -> new ResourceNotFoundException("User not found on :: " + userId));
 		return ResponseEntity.ok().body(user);
 	}
 	
